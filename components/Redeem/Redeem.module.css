@@ -1,0 +1,11 @@
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+}

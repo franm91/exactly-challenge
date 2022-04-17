@@ -1,0 +1,19 @@
+.section {
+  min-height: 2vh;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  text-align: center;
+  justify-content: center;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  text-align: center;
+}
