@@ -13,7 +13,6 @@ type Props = {
 function Item({ entry }: Props) {
   const { type, amount, tokens, payer, borrower } = entry;
 
-  //this is hardcoded but it would be cool to make this dynamic
   const decimals: Dictionary<number> = {
     DAI: 18,
     cDAI: 8,
