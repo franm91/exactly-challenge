@@ -27,3 +27,14 @@
   display: flex;
   justify-content: center;
 }
+
+.scanLink {
+  background-color: rgb(255, 255, 255);
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+}
+.scanLink:hover {
+  background-color: rgb(203, 203, 204);
+}

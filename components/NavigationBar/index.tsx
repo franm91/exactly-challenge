@@ -18,12 +18,6 @@ export const NavigationBar = () => (
         <Link href="/redeem" passHref>
           <Nav.Link>Redeem</Nav.Link>
         </Link>
-        <Link href="/borrow" passHref>
-          <Nav.Link>Borrow</Nav.Link>
-        </Link>
-        <Link href="/repay" passHref>
-          <Nav.Link>Repay</Nav.Link>
-        </Link>
       </Nav>
       <Nav>
         <WalletConnectButton />

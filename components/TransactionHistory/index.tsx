@@ -5,6 +5,7 @@ import { useWeb3Context } from "../../context/web3Context";
 import { history } from "../../types/history";
 import { historyEntities } from "../../types/historyEntities";
 import { Dictionary } from "../../types/dictionary";
+import SpinnerLoader from "../SpinnerLoader";
 
 import Item from "./Item";
 
@@ -63,10 +64,10 @@ function TransactionHistory() {
           return <Item key={key} entry={entry} />;
         })}
 
-      {!history && address && <p>Loading...</p>}
+      {!history && address && <SpinnerLoader />}
 
       {history && history.length === 0 && address && (
-        <p>No se encontraron transacciones para esta billetera</p>
+        <p>No transactions found for this wallet</p>
       )}
     </section>
   );

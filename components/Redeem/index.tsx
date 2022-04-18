@@ -7,6 +7,7 @@ import getContract from "../../utils/getContract";
 import getContractAddresses from "../../utils/getContractAddresses";
 import styles from "./Redeem.module.css";
 import Input from "../Input";
+import SpinnerLoader from "../SpinnerLoader";
 
 function RedeemAction() {
   const { web3Provider, address } = useWeb3Context();
@@ -65,13 +66,20 @@ function RedeemAction() {
   }
 
   async function handleOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    setAmount(e.target.value);
+    const re = /^[0-9.\b]+$/;
+    if (e.target.value === "" || re.test(e.target.value)) {
+      setAmount(e.target.value);
+    }
 
-    const contract = await getContract(web3Provider, "cDai", true);
-    const balance = await contract.balanceOf(address);
-    const balanceFormated = Number(ethers.utils.formatUnits(balance._hex, 8));
-    const funds = Number(e.target.value);
-    balanceFormated < funds ? setDisable(true) : setDisable(false);
+    const contract = await getContract(web3Provider, "dai", true);
+    const currentBalance = await contract.balanceOf(address);
+    const decimals = await contract.decimals();
+    const formattedBalance = Number(
+      ethers.utils.formatUnits(currentBalance, decimals)
+    );
+    const inputValue = Number(e.target.value);
+
+    formattedBalance < inputValue ? setDisable(true) : setDisable(false);
   }
 
   return (
@@ -80,14 +88,6 @@ function RedeemAction() {
         <section className={styles.section}>
           {!transaction && (
             <>
-              {/* <input
-                type="text"
-                value={amount}
-                placeholder="0"
-                onChange={(e) => {
-                  setAmount(e.target.value);
-                }}
-              /> */}
               <Input value={amount} onChange={(e: any) => handleOnChange(e)} />
 
               <CustomButton
@@ -100,9 +100,11 @@ function RedeemAction() {
           {transaction && (
             <div className={styles.success}>
               <p>{transaction.status}</p>
+              {transaction.status == "PENDING" ? <SpinnerLoader /> : ""}
               {transaction.hash && (
                 <>
                   <a
+                    className={styles.scanLink}
                     href={`https://kovan.etherscan.io/tx/${transaction.hash}`}
                     target="_blank"
                     rel="noopener noreferrer"

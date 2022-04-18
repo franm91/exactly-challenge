@@ -7,15 +7,7 @@ type Props = {
 };
 
 function Input({ value, onChange }: Props) {
-  return (
-    <input
-      className={styles.input}
-      type="text"
-      value={value}
-      placeholder="0"
-      onChange={onChange}
-    />
-  );
+  return <input className={styles.input} value={value} onChange={onChange} />;
 }
 
 export default Input;

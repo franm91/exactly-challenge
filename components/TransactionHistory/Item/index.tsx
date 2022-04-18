@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-
+import styles from "./Item.module.css";
 import { Dictionary } from "../../../types/dictionary";
 import { historyEntities } from "../../../types/historyEntities";
 
@@ -21,7 +21,7 @@ function Item({ entry }: Props) {
 
   return (
     <ListGroup>
-      <ListGroup.Item action variant="primary">
+      <ListGroup.Item className={styles.item} variant="primary">
         <p>Transaction: {type}</p>
         {amount && (
           <p> DAI: {ethers.utils.formatUnits(amount, decimals.DAI)}</p>

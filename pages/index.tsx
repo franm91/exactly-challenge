@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="test">
       <Layout>
         <>
           <Head>

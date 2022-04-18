@@ -41,11 +41,7 @@ export default function Layout({ children }: Props) {
       <main className={styles.main}>{children}</main>
       <section className={styles.section}>
         {network ? (
-          <Card
-            className={styles.main}
-            border="primary"
-            style={{ width: "50rem" }}
-          >
+          <Card className={styles.transaction} style={{ width: "50rem" }}>
             <TransactionHistory />
           </Card>
         ) : (
