@@ -1,4 +1,4 @@
-import { Dictionary } from "../types/dictionary";
+import { Dictionary } from "types/dictionary";
 
 export default function getContractAddresses(name: string) {
   const addresses: Dictionary<string> = {

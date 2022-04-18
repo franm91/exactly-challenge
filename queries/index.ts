@@ -1,3 +1,3 @@
-import { getWalletHistory } from "../queries/walletHistory";
+import { getWalletHistory } from "queries/walletHistory";
 
 export { getWalletHistory };

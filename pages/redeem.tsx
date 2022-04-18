@@ -1,7 +1,7 @@
-import Layout from "../components/Layout/layout";
 import Head from "next/head";
-import RedeemAction from "../components/Redeem";
-import { useWeb3Context } from "../context/web3Context";
+import Layout from "@/Layout/layout";
+import RedeemAction from "components/Redeem";
+import { useWeb3Context } from "context/web3Context";
 
 export default function Redeem() {
   const { address } = useWeb3Context();

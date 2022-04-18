@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { useWeb3Context } from "../../context/web3Context";
-import CustomButton from "../../components/Button";
-import { transaction } from "../../types/transaction";
-import getContract from "../../utils/getContract";
-import getContractAddresses from "../../utils/getContractAddresses";
+import { useWeb3Context } from "context/web3Context";
+import CustomButton from "@/Button";
+import { transaction } from "types/transaction";
+import getContract from "utils/getContract";
+import getContractAddresses from "utils/getContractAddresses";
+import getContractDecimals from "utils/getContractDecimals";
+
 import styles from "./Mint.module.css";
-import Input from "../Input";
-import SpinnerLoader from "../SpinnerLoader";
+import Input from "@/Input";
+import SpinnerLoader from "@/SpinnerLoader";
 
 function Mint() {
   const { web3Provider, address } = useWeb3Context();
@@ -55,13 +57,13 @@ function Mint() {
 
     const contract = await getContract(web3Provider, "dai", true);
     const currentBalance = await contract.balanceOf(address);
-    const decimals = await contract.decimals();
+    const decimals = await getContractDecimals(contract);
     const formattedBalance = Number(
       ethers.utils.formatUnits(currentBalance, decimals)
     );
-    const funds = Number(e.target.value);
+    const inputValue = Number(e.target.value);
 
-    formattedBalance < funds ? setDisable(true) : setDisable(false);
+    formattedBalance < inputValue ? setDisable(true) : setDisable(false);
   }
 
   async function checkAllowance() {

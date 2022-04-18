@@ -1,5 +1,5 @@
-import CustomButton from "../Button";
-import { useWeb3Context } from "../../context/web3Context";
+import CustomButton from "@/Button";
+import { useWeb3Context } from "context/web3Context";
 
 function WalletConnectButton() {
   const { connect, disconnect, address } = useWeb3Context();

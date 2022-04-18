@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import request from "graphql-request";
-import { getWalletHistory } from "../../queries";
-import { useWeb3Context } from "../../context/web3Context";
-import { history } from "../../types/history";
-import { historyEntities } from "../../types/historyEntities";
-import { Dictionary } from "../../types/dictionary";
-import SpinnerLoader from "../SpinnerLoader";
-
+import { getWalletHistory } from "queries";
+import { useWeb3Context } from "context/web3Context";
+import { history } from "types/history";
+import { historyEntities } from "types/historyEntities";
+import { Dictionary } from "types/dictionary";
+import SpinnerLoader from "@/SpinnerLoader";
 import Item from "./Item";
 
 function TransactionHistory() {

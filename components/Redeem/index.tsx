@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { useWeb3Context } from "../../context/web3Context";
-import CustomButton from "../../components/Button";
-import { transaction } from "../../types/transaction";
-import getContract from "../../utils/getContract";
-import getContractAddresses from "../../utils/getContractAddresses";
+import { useWeb3Context } from "context/web3Context";
+import CustomButton from "@/Button";
+import { transaction } from "types/transaction";
+import getContract from "utils/getContract";
+import getContractAddresses from "utils/getContractAddresses";
 import styles from "./Redeem.module.css";
-import Input from "../Input";
-import SpinnerLoader from "../SpinnerLoader";
+import Input from "@/Input";
+import SpinnerLoader from "@/SpinnerLoader";
+import getContractDecimals from "utils/getContractDecimals";
 
 function RedeemAction() {
   const { web3Provider, address } = useWeb3Context();
@@ -73,7 +74,7 @@ function RedeemAction() {
 
     const contract = await getContract(web3Provider, "dai", true);
     const currentBalance = await contract.balanceOf(address);
-    const decimals = await contract.decimals();
+    const decimals = await getContractDecimals(contract);
     const formattedBalance = Number(
       ethers.utils.formatUnits(currentBalance, decimals)
     );

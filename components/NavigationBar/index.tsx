@@ -1,8 +1,8 @@
 import { Nav, Navbar } from "react-bootstrap";
 import styles from "./NavigationBar.module.css";
-import Address from "../Address";
+import Address from "@/Address";
 import Link from "next/link";
-import WalletConnectButton from "../../components/WalletConnectButton";
+import WalletConnectButton from "@/WalletConnectButton";
 
 export const NavigationBar = () => (
   <Navbar collapseOnSelect expand="lg" variant="light" className={styles.nav}>

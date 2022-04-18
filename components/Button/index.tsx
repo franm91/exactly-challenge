@@ -1,6 +1,5 @@
 import { MouseEventHandler } from "react";
 import { Button } from "react-bootstrap";
-import styles from "./Button.module.css";
 
 type Props = {
   text: string;
@@ -11,12 +10,7 @@ type Props = {
 
 function CustomButton({ text, onClick, color, disable }: Props) {
   return (
-    <Button
-      className={styles.button}
-      variant={color}
-      onClick={onClick}
-      disabled={disable}
-    >
+    <Button variant={color} onClick={onClick} disabled={disable}>
       {text}
     </Button>
   );

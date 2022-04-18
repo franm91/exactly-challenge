@@ -1,11 +1,11 @@
 import Head from "next/head";
 import styles from "./layout.module.css";
 import React, { ReactChild } from "react";
-import { NavigationBar } from "../NavigationBar";
+import { NavigationBar } from "@/NavigationBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useWeb3Context } from "../../context/web3Context";
+import { useWeb3Context } from "context/web3Context";
 import { Card } from "react-bootstrap";
-import TransactionHistory from "../TransactionHistory";
+import TransactionHistory from "@/TransactionHistory";
 
 interface Props {
   children: ReactChild;
@@ -41,7 +41,7 @@ export default function Layout({ children }: Props) {
       <main className={styles.main}>{children}</main>
       <section className={styles.section}>
         {network ? (
-          <Card className={styles.transaction} style={{ width: "50rem" }}>
+          <Card className={styles.main} style={{ width: "50rem" }}>
             <TransactionHistory />
           </Card>
         ) : (

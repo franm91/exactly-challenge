@@ -1,5 +1,5 @@
-import { useWeb3Context } from "../../context/web3Context";
-import formatWallet from "../../utils/formatWallet";
+import { useWeb3Context } from "context/web3Context";
+import formatWallet from "utils/formatWallet";
 import { Card } from "react-bootstrap";
 import styles from "./Address.module.css";
 

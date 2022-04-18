@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Layout from "../components/Layout/layout";
+import Layout from "@/Layout/layout";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home: NextPage = () => {

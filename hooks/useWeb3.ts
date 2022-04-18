@@ -77,7 +77,6 @@ export const useWeb3 = () => {
     }
   }, [connect]);
 
-  // EIP-1193 events
   useEffect(() => {
     if (provider?.on) {
       const handleAccountsChanged = (accounts: string[]) => {
